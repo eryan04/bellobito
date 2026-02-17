@@ -1,0 +1,19 @@
+{
+  "name": "bellobito",
+  "version": "1.0.0",
+  "description": "bellobito",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eryan04/bellobito.git"
+  },
+  "author": "bellobito corporation",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eryan04/bellobito/issues"
+  },
+  "homepage": "https://github.com/eryan04/bellobito#readme"
+}
