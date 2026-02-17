@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BelloBito - Test de Compatibilité Amoureuse</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>❤️ BelloBito ❤️</h1>
+            <p class="subtitle">Découvrez votre compatibilité amoureuse</p>
+        </header>
+
+        <main>
+            <div class="form-container">
+                <form id="compatibilityForm">
+                    <div class="input-group">
+                        <label for="name1">Votre prénom</label>
+                        <input type="text" id="name1" name="name1" required placeholder="Entrez votre prénom">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="name2">Prénom de votre crush</label>
+                        <input type="text" id="name2" name="name2" required placeholder="Entrez son prénom">
+                    </div>
+
+                    <button type="submit" class="btn-calculate">
+                        💘 Calculer la compatibilité
+                    </button>
+                </form>
+            </div>
+
+            <div id="result" class="result hidden">
+                <div class="result-content">
+                    <h2>Résultat</h2>
+                    <div class="score-circle">
+                        <span id="score">0</span>%
+                    </div>
+                    <p id="message" class="message"></p>
+                    <button onclick="resetForm()" class="btn-reset">Refaire le test</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2026 BelloBito Corporation - L'amour en chiffres</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

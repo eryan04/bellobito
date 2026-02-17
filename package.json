@@ -1,9 +1,10 @@
 {
   "name": "bellobito",
   "version": "1.0.0",
-  "description": "bellobito",
-  "main": "index.js",
+  "description": "Site de compatibilité amoureuse BelloBito",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/eryan04/bellobito/issues"
   },
-  "homepage": "https://github.com/eryan04/bellobito#readme"
+  "homepage": "https://github.com/eryan04/bellobito#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
