@@ -7,47 +7,195 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>❤️ BelloBito ❤️</h1>
-            <p class="subtitle">Découvrez votre compatibilité amoureuse</p>
-        </header>
-
-        <main>
-            <div class="form-container">
-                <form id="compatibilityForm">
-                    <div class="input-group">
-                        <label for="name1">Votre prénom</label>
-                        <input type="text" id="name1" name="name1" required placeholder="Entrez votre prénom">
-                    </div>
-
-                    <div class="input-group">
-                        <label for="name2">Prénom de votre crush</label>
-                        <input type="text" id="name2" name="name2" required placeholder="Entrez son prénom">
-                    </div>
-
-                    <button type="submit" class="btn-calculate">
-                        💘 Calculer la compatibilité
-                    </button>
-                </form>
+    <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
+        <span id="themeIcon">🌙</span>
+    </button>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">💕</span>
+                <span class="brand-name">BelloBito</span>
             </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Accueil</a>
+                <a href="#about" class="nav-link">À propos</a>
+                <a href="#test" class="nav-link">Faire le test</a>
+            </div>
+        </div>
+    </nav>
 
-            <div id="result" class="result hidden">
-                <div class="result-content">
-                    <h2>Résultat</h2>
-                    <div class="score-circle">
-                        <span id="score">0</span>%
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <div class="hero-main">
+                <div class="hero-text">
+                    <div class="hero-badge">✨ L'amour en chiffres</div>
+                    <h1 class="hero-title">Découvrez votre <span class="gradient-text">Compatibilité Amoureuse</span></h1>
+                    <p class="hero-description">
+                        BelloBito utilise un algorithme unique pour calculer votre taux de compatibilité avec la personne de votre choix. 
+                        Simple, rapide et amusant, découvrez si les astres sont alignés pour vous deux.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#test" class="btn btn-primary">Commencer le test</a>
+                        <a href="#about" class="btn btn-secondary">En savoir plus</a>
                     </div>
-                    <p id="message" class="message"></p>
-                    <button onclick="resetForm()" class="btn-reset">Refaire le test</button>
+                </div>
+                <div class="hero-image">
+                    <img src="/src/img/bellobito.png" alt="BelloBito" class="hero-img">
                 </div>
             </div>
-        </main>
+            <div class="hero-stats">
+                <div class="stat-box">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Tests réalisés</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Utilisateurs satisfaits</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">❤️</div>
+                    <div class="stat-label">Fait avec amour</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <footer>
-            <p>© 2026 BelloBito Corporation - L'amour en chiffres</p>
-        </footer>
-    </div>
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Comment ça fonctionne ?</h2>
+                <p class="section-description">
+                    Notre algorithme analyse vos prénoms pour calculer un score de compatibilité personnalisé
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Algorithme Unique</h3>
+                    <p class="feature-text">
+                        Un calcul basé sur l'analyse phonétique et numérique de vos prénoms pour un résultat unique.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Résultat Instantané</h3>
+                    <p class="feature-text">
+                        Obtenez votre score de compatibilité en quelques secondes seulement. Rapide et efficace.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">100% Privé</h3>
+                    <p class="feature-text">
+                        Vos données restent sur votre appareil. Aucune information n'est collectée ou partagée.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">Interface Moderne</h3>
+                    <p class="feature-text">
+                        Une expérience utilisateur fluide et agréable avec des animations élégantes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="test" class="test-section">
+        <div class="container">
+            <div class="test-container">
+                <div class="test-header">
+                    <h2 class="test-title">Calculez votre compatibilité</h2>
+                    <p class="test-subtitle">Entrez vos prénoms pour découvrir votre score d'amour</p>
+                </div>
+
+                <div id="testForm" class="test-form">
+                    <form id="compatibilityForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name1" class="form-label">Votre prénom</label>
+                                <input type="text" id="name1" class="form-input" placeholder="Ex: Sophie" required>
+                            </div>
+                            
+                            <div class="heart-divider">
+                                <span class="heart-plus">💖</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="name2" class="form-label">Son prénom</label>
+                                <input type="text" id="name2" class="form-input" placeholder="Ex: Thomas" required>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-large">
+                            Calculer la compatibilité
+                        </button>
+                    </form>
+                </div>
+
+                <div id="result" class="result-container hidden">
+                    <div class="result-card">
+                        <h3 class="result-title">Votre Score de Compatibilité</h3>
+                        
+                        <div class="score-display">
+                            <div class="score-circle">
+                                <svg viewBox="0 0 200 200">
+                                    <defs>
+                                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="100" cy="100" r="90" class="circle-bg"/>
+                                    <circle cx="100" cy="100" r="90" class="circle-progress" id="progressCircle"/>
+                                </svg>
+                                <div class="score-number">
+                                    <span id="score">0</span><span class="score-percent">%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p id="message" class="result-message"></p>
+                        
+                        <div class="result-details">
+                            <div class="detail-box">
+                                <h4>📊 Analyse</h4>
+                                <p id="analysis"></p>
+                            </div>
+                            
+                            <div class="detail-box">
+                                <h4>💡 Conseil</h4>
+                                <p id="advice"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="result-actions">
+                            <button id="resetBtn" class="btn btn-secondary">Nouveau test</button>
+                            <button id="shareBtn" class="btn btn-outline">Partager</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-icon">💕</span>
+                    <span class="brand-name">BelloBito</span>
+                </div>
+                <p class="footer-text">L'amour n'a pas de formule, mais on peut toujours s'amuser à calculer ❤️</p>
+                <p class="footer-copy">© 2026 BelloBito. Fait avec 💖 pour le fun.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
