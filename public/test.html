@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Compatibilité - BelloBito</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">💖</span>
+                <span class="brand-name">BelloBito</span>
+            </div>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="/" class="nav-link">Accueil</a>
+                    <a href="/test" class="nav-link active">Test de compatibilité</a>
+                    <a href="/horoscope" class="nav-link">Horoscope</a>
+                </div>
+                <button id="historyBtn" class="btn-icon" title="Historique">
+                    <span>📜</span>
+                </button>
+                <button id="themeToggle" class="theme-toggle">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div id="historyPanel" class="history-panel">
+        <div class="history-header">
+            <h3>Historique des tests</h3>
+            <button id="closeHistory" class="btn-close">✕</button>
+        </div>
+        <div id="historyList" class="history-list"></div>
+    </div>
+
+    <section class="test-section">
+        <div class="container">
+            <div class="test-container">
+                <div class="test-header">
+                    <h2 class="test-title">Test de Compatibilité Avancé</h2>
+                    <p class="test-subtitle">Analyse complète : prénoms, zodiaque et numérologie</p>
+                    <div id="userStats" class="user-stats"></div>
+                </div>
+
+                <div id="testForm" class="test-form">
+                    <form id="compatibilityForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name1" class="form-label">Votre prénom</label>
+                                <input type="text" id="name1" class="form-input" placeholder="Ex: Sophie" required>
+                            </div>
+                            
+                            <div class="heart-divider">
+                                <span class="heart-plus">💖</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="name2" class="form-label">Son prénom</label>
+                                <input type="text" id="name2" class="form-input" placeholder="Ex: Thomas" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="zodiac1" class="form-label">Votre signe</label>
+                                <select id="zodiac1" class="form-input" required>
+                                    <option value="">Choisir un signe</option>
+                                    <option value="belier">♈ Bélier</option>
+                                    <option value="taureau">♉ Taureau</option>
+                                    <option value="gemeaux">♊ Gémeaux</option>
+                                    <option value="cancer">♋ Cancer</option>
+                                    <option value="lion">♌ Lion</option>
+                                    <option value="vierge">♍ Vierge</option>
+                                    <option value="balance">♎ Balance</option>
+                                    <option value="scorpion">♏ Scorpion</option>
+                                    <option value="sagittaire">♐ Sagittaire</option>
+                                    <option value="capricorne">♑ Capricorne</option>
+                                    <option value="verseau">♒ Verseau</option>
+                                    <option value="poissons">♓ Poissons</option>
+                                </select>
+                            </div>
+                            
+                            <div class="heart-divider">
+                                <span class="heart-plus">⭐</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="zodiac2" class="form-label">Son signe</label>
+                                <select id="zodiac2" class="form-input" required>
+                                    <option value="">Choisir un signe</option>
+                                    <option value="belier">♈ Bélier</option>
+                                    <option value="taureau">♉ Taureau</option>
+                                    <option value="gemeaux">♊ Gémeaux</option>
+                                    <option value="cancer">♋ Cancer</option>
+                                    <option value="lion">♌ Lion</option>
+                                    <option value="vierge">♍ Vierge</option>
+                                    <option value="balance">♎ Balance</option>
+                                    <option value="scorpion">♏ Scorpion</option>
+                                    <option value="sagittaire">♐ Sagittaire</option>
+                                    <option value="capricorne">♑ Capricorne</option>
+                                    <option value="verseau">♒ Verseau</option>
+                                    <option value="poissons">♓ Poissons</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-large">
+                            Calculer la compatibilité
+                        </button>
+                    </form>
+                </div>
+
+                <div id="result" class="result-container hidden">
+                    <div class="result-card">
+                        <h3 class="result-title">Votre Score de Compatibilité</h3>
+                        
+                        <div class="score-display">
+                            <div class="score-circle">
+                                <svg viewBox="0 0 200 200">
+                                    <defs>
+                                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="100" cy="100" r="90" class="circle-bg"/>
+                                    <circle cx="100" cy="100" r="90" class="circle-progress" id="progressCircle"/>
+                                </svg>
+                                <div class="score-number">
+                                    <span id="score">0</span><span class="score-percent">%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p id="message" class="result-message"></p>
+                        
+                        <div class="result-details">
+                            <div class="detail-box">
+                                <div class="detail-header">
+                                    <h4>📊 Analyse des Prénoms</h4>
+                                    <span class="detail-score" id="nameScore">0%</span>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar" id="nameBar"></div>
+                                </div>
+                                <p id="nameAnalysis"></p>
+                            </div>
+                            
+                            <div class="detail-box">
+                                <div class="detail-header">
+                                    <h4>⭐ Compatibilité Zodiacale</h4>
+                                    <span class="detail-score" id="zodiacScore">0%</span>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar" id="zodiacBar"></div>
+                                </div>
+                                <p id="zodiacAnalysis"></p>
+                            </div>
+
+                            <div class="detail-box">
+                                <div class="detail-header">
+                                    <h4>🔢 Numérologie</h4>
+                                    <span class="detail-score" id="numerologyScore">0%</span>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar" id="numerologyBar"></div>
+                                </div>
+                                <p id="numerologyAnalysis"></p>
+                            </div>
+                            
+                            <div class="detail-box">
+                                <h4>💡 Conseil</h4>
+                                <p id="advice"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="result-actions">
+                            <button id="resetBtn" class="btn btn-secondary">Nouveau test</button>
+                            <button id="shareBtn" class="btn btn-outline">Partager</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">L'amour n'a pas de formule, mais on peut toujours s'amuser à calculer ❤️</p>
+                <p class="footer-copy">© 2026 BelloBito. Fait avec 💖 pour le fun.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="test.js"></script>
+</body>
+</html>

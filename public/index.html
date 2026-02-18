@@ -7,20 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
-        <span id="themeIcon">🌙</span>
-    </button>
-    
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
                 <span class="brand-icon">💕</span>
                 <span class="brand-name">BelloBito</span>
             </div>
-            <div class="nav-links">
-                <a href="#home" class="nav-link active">Accueil</a>
-                <a href="#about" class="nav-link">À propos</a>
-                <a href="#test" class="nav-link">Faire le test</a>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="/" class="nav-link active">Accueil</a>
+                    <a href="/test" class="nav-link">Test de compatibilité</a>
+                    <a href="/horoscope" class="nav-link">Horoscope</a>
+                </div>
+                <button id="themeToggle" class="theme-toggle" aria-label="Changer de thème">
+                    <span class="theme-icon">🌙</span>
+                </button>
             </div>
         </div>
     </nav>
@@ -36,144 +37,76 @@
                         Simple, rapide et amusant, découvrez si les astres sont alignés pour vous deux.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#test" class="btn btn-primary">Commencer le test</a>
-                        <a href="#about" class="btn btn-secondary">En savoir plus</a>
+                        <a href="/test" class="btn btn-primary">Commencer le test</a>
+                        <a href="/horoscope" class="btn btn-secondary">Horoscope du jour</a>
                     </div>
                 </div>
                 <div class="hero-image">
                     <img src="/src/img/bellobito.png" alt="BelloBito" class="hero-img">
                 </div>
             </div>
+            
+            <div class="quote-of-day">
+                <div class="quote-icon">💕</div>
+                <p id="dailyQuote" class="quote-text">Chargement de la citation du jour...</p>
+            </div>
+            
             <div class="hero-stats">
                 <div class="stat-box">
-                    <div class="stat-number">10K+</div>
+                    <div class="stat-number" data-count="10567">0</div>
                     <div class="stat-label">Tests réalisés</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-number">95%</div>
-                    <div class="stat-label">Utilisateurs satisfaits</div>
+                    <div class="stat-number" data-count="95">0</div>
+                    <div class="stat-label">% Utilisateurs satisfaits</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-number">❤️</div>
-                    <div class="stat-label">Fait avec amour</div>
+                    <div class="stat-number" data-count="847">0</div>
+                    <div class="stat-label">Couples formés</div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Comment ça fonctionne ?</h2>
+        </div>Découvrez nos outils</h2>
                 <p class="section-description">
-                    Notre algorithme analyse vos prénoms pour calculer un score de compatibilité personnalisé
+                    Des analyses complètes pour explorer votre compatibilité amoureuse
                 </p>
             </div>
             
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">🎯</div>
-                    <h3 class="feature-title">Algorithme Unique</h3>
+                    <h3 class="feature-title">Test de Compatibilité</h3>
                     <p class="feature-text">
-                        Un calcul basé sur l'analyse phonétique et numérique de vos prénoms pour un résultat unique.
+                        Analysez votre compatibilité via les prénoms, le zodiaque et la numérologie pour un résultat complet.
                     </p>
+                    <a href="/test" class="feature-link">Faire le test →</a>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3 class="feature-title">Résultat Instantané</h3>
+                    <div class="feature-icon">⭐</div>
+                    <h3 class="feature-title">Horoscope Amour</h3>
                     <p class="feature-text">
-                        Obtenez votre score de compatibilité en quelques secondes seulement. Rapide et efficace.
+                        Découvrez votre horoscope amoureux quotidien personnalisé selon votre signe astrologique.
                     </p>
+                    <a href="/horoscope" class="feature-link">Voir l'horoscope →</a>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3 class="feature-title">100% Privé</h3>
+                    <div class="feature-icon">🔮</div>
+                    <h3 class="feature-title">Numérologie</h3>
                     <p class="feature-text">
-                        Vos données restent sur votre appareil. Aucune information n'est collectée ou partagée.
+                        Calculez vos chiffres de compatibilité et découvrez ce que révèlent vos prénoms sur votre relation.
                     </p>
+                    <a href="/test" class="feature-link">Découvrir →</a>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3 class="feature-title">Interface Moderne</h3>
+                    <div class="feature-icon">💖</div>
+                    <h3 class="feature-title">Analyse par Signe</h3>
                     <p class="feature-text">
-                        Une expérience utilisateur fluide et agréable avec des animations élégantes.
+                        Explorez la compatibilité entre tous les signes du zodiaque et trouvez votre match parfait.
                     </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="test" class="test-section">
-        <div class="container">
-            <div class="test-container">
-                <div class="test-header">
-                    <h2 class="test-title">Calculez votre compatibilité</h2>
-                    <p class="test-subtitle">Entrez vos prénoms pour découvrir votre score d'amour</p>
-                </div>
-
-                <div id="testForm" class="test-form">
-                    <form id="compatibilityForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name1" class="form-label">Votre prénom</label>
-                                <input type="text" id="name1" class="form-input" placeholder="Ex: Sophie" required>
-                            </div>
-                            
-                            <div class="heart-divider">
-                                <span class="heart-plus">💖</span>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="name2" class="form-label">Son prénom</label>
-                                <input type="text" id="name2" class="form-input" placeholder="Ex: Thomas" required>
-                            </div>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-large">
-                            Calculer la compatibilité
-                        </button>
-                    </form>
-                </div>
-
-                <div id="result" class="result-container hidden">
-                    <div class="result-card">
-                        <h3 class="result-title">Votre Score de Compatibilité</h3>
-                        
-                        <div class="score-display">
-                            <div class="score-circle">
-                                <svg viewBox="0 0 200 200">
-                                    <defs>
-                                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
-                                            <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
-                                        </linearGradient>
-                                    </defs>
-                                    <circle cx="100" cy="100" r="90" class="circle-bg"/>
-                                    <circle cx="100" cy="100" r="90" class="circle-progress" id="progressCircle"/>
-                                </svg>
-                                <div class="score-number">
-                                    <span id="score">0</span><span class="score-percent">%</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <p id="message" class="result-message"></p>
-                        
-                        <div class="result-details">
-                            <div class="detail-box">
-                                <h4>📊 Analyse</h4>
-                                <p id="analysis"></p>
-                            </div>
-                            
-                            <div class="detail-box">
-                                <h4>💡 Conseil</h4>
-                                <p id="advice"></p>
-                            </div>
-                        </div>
-                        
+                    <a href="/test" class="feature-link">Explorer →</a
+                <div class="feature-card">
                         <div class="result-actions">
                             <button id="resetBtn" class="btn btn-secondary">Nouveau test</button>
                             <button id="shareBtn" class="btn btn-outline">Partager</button>
@@ -200,3 +133,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+home

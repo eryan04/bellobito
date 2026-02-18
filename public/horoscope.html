@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horoscope Amour - BelloBito</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">💖</span>
+                <span class="brand-name">BelloBito</span>
+            </div>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="/" class="nav-link">Accueil</a>
+                    <a href="/test" class="nav-link">Test de compatibilité</a>
+                    <a href="/horoscope" class="nav-link active">Horoscope</a>
+                </div>
+                <button id="themeToggle" class="theme-toggle">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="horoscope-section">
+        <div class="container">
+            <div class="horoscope-header">
+                <h2 class="section-title">Horoscope Amour du Jour</h2>
+                <p class="section-description">Découvrez ce que les astres réservent à votre vie amoureuse aujourd'hui</p>
+                <p class="horoscope-date" id="currentDate"></p>
+            </div>
+
+            <div class="horoscope-grid">
+                <div class="horoscope-card" data-sign="belier">
+                    <div class="horoscope-sign">
+                        <span class="sign-icon">♈</span>
+                        <h3 class="sign-name">Bélier</h3>
+                        <span class="sign-dates">21 mars - 19 avril</span>
+                    </div>
+                    <p class="horoscope-text" data-sign="belier"></p>
+                    <div class="horoscope-rating">
+                        <span class="rating-label">Amour</span>
+                        <div class="hearts" data-sign="belier"></div>
+                    </div>
+                </div>
+
+                <div class="horoscope-card" data-sign="taureau">
+                    <div class="horoscope-sign">
+                        <span class="sign-icon">♉</span>
+                        <h3 class="sign-name">Taureau</h3>
+                        <span class="sign-dates">20 avril - 20 mai</span>
+                    </div>
+                    <p class="horoscope-text" data-sign="taureau"></p>
+                    <div class="horoscope-rating">
+                        <span class="rating-label">Amour</span>
+                        <div class="hearts" data-sign="taureau"></div>
+                    </div>
+                </div>
+
+                <div class="horoscope-card" data-sign="gemeaux">
+                    <div class="horoscope-sign">
+                        <span class="sign-icon">♊</span>
+                        <h3 class="sign-name">Gémeaux</h3>
+                        <span class="sign-dates">21 mai - 21 juin</span>
+                    </div>
+                    <p class="horoscope-text" data-sign="gemeaux"></p>
+                    <div class="horoscope-rating">
+                        <span class="rating-label">Amour</span>
+                        <div class="hearts" data-sign="gemeaux"></div>
+                    </div>
+                </div>
+
+                <div class="horoscope-card" data-sign="cancer">
+                    <div class="horoscope-sign">
+                        <span class="sign-icon">♋</span>
+                        <h3 class="sign-name">Cancer</h3>
+                        <span class="sign-dates">22 juin - 22 juillet</span>
+                    </div>
+                    <p class="horoscope-text" data-sign="cancer"></p>
+                    <div class="horoscope-rating">
+                        <span class="rating-label">Amour</span>
+                        <div class="hearts" data-sign="cancer"></div>
+                    </div>
+                </div>
+
+                <div class="horoscope-card" data-sign="lion">
+                    <div class="horoscope-sign">
+                        <span class="sign-icon">♌</span>
+                        <h3 class="sign-name">Lion</h3>
+                        <span class="sign-dates">23 juillet - 22 août</span>
+                    </div>
+                    <p class="horoscope-text" data-sign="lion"></p>
+                    <div class="horoscope-rating">
+                        <span class="rating-label">Amour</span>
+                        <div class="hearts" data-sign="lion"></div>
+                    </div>
+                </div>
+
+                <div class="horoscope-card" data-sign="vierge">
+                    <div class="horoscope-sign">
+                        <span class="sign-icon">♍</span>
+                        <h3 class="sign-name">Vierge</h3>
+                        <span class="sign-dates">23 août - 22 septembre</span>
+                    </div>
+                    <p class="horoscope-text" data-sign="vierge"></p>
+                    <div class="horoscope-rating">
+                        <span class="rating-label">Amour</span>
+                        <div class="hearts" data-sign="vierge"></div>
+                    </div>
+                </div>
+
+                <div class="horoscope-card" data-sign="balance">
+                    <div class="horoscope-sign">
+                        <span class="sign-icon">♎</span>
+                        <h3 class="sign-name">Balance</h3>
+                        <span class="sign-dates">23 septembre - 22 octobre</span>
+                    </div>
+                    <p class="horoscope-text" data-sign="balance"></p>
+                    <div class="horoscope-rating">
+                        <span class="rating-label">Amour</span>
+                        <div class="hearts" data-sign="balance"></div>
+                    </div>
+                </div>
+
+                <div class="horoscope-card" data-sign="scorpion">
+                    <div class="horoscope-sign">
+                        <span class="sign-icon">♏</span>
+                        <h3 class="sign-name">Scorpion</h3>
+                        <span class="sign-dates">23 octobre - 21 novembre</span>
+                    </div>
+                    <p class="horoscope-text" data-sign="scorpion"></p>
+                    <div class="horoscope-rating">
+                        <span class="rating-label">Amour</span>
+                        <div class="hearts" data-sign="scorpion"></div>
+                    </div>
+                </div>
+
+                <div class="horoscope-card" data-sign="sagittaire">
+                    <div class="horoscope-sign">
+                        <span class="sign-icon">♐</span>
+                        <h3 class="sign-name">Sagittaire</h3>
+                        <span class="sign-dates">22 novembre - 21 décembre</span>
+                    </div>
+                    <p class="horoscope-text" data-sign="sagittaire"></p>
+                    <div class="horoscope-rating">
+                        <span class="rating-label">Amour</span>
+                        <div class="hearts" data-sign="sagittaire"></div>
+                    </div>
+                </div>
+
+                <div class="horoscope-card" data-sign="capricorne">
+                    <div class="horoscope-sign">
+                        <span class="sign-icon">♑</span>
+                        <h3 class="sign-name">Capricorne</h3>
+                        <span class="sign-dates">22 décembre - 19 janvier</span>
+                    </div>
+                    <p class="horoscope-text" data-sign="capricorne"></p>
+                    <div class="horoscope-rating">
+                        <span class="rating-label">Amour</span>
+                        <div class="hearts" data-sign="capricorne"></div>
+                    </div>
+                </div>
+
+                <div class="horoscope-card" data-sign="verseau">
+                    <div class="horoscope-sign">
+                        <span class="sign-icon">♒</span>
+                        <h3 class="sign-name">Verseau</h3>
+                        <span class="sign-dates">20 janvier - 18 février</span>
+                    </div>
+                    <p class="horoscope-text" data-sign="verseau"></p>
+                    <div class="horoscope-rating">
+                        <span class="rating-label">Amour</span>
+                        <div class="hearts" data-sign="verseau"></div>
+                    </div>
+                </div>
+
+                <div class="horoscope-card" data-sign="poissons">
+                    <div class="horoscope-sign">
+                        <span class="sign-icon">♓</span>
+                        <h3 class="sign-name">Poissons</h3>
+                        <span class="sign-dates">19 février - 20 mars</span>
+                    </div>
+                    <p class="horoscope-text" data-sign="poissons"></p>
+                    <div class="horoscope-rating">
+                        <span class="rating-label">Amour</span>
+                        <div class="hearts" data-sign="poissons"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">L'amour n'a pas de formule, mais on peut toujours s'amuser à calculer ❤️</p>
+                <p class="footer-copy">© 2026 BelloBito. Fait avec 💖 pour le fun.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="horoscope.js"></script>
+</body>
+</html>
