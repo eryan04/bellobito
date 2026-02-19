@@ -23,6 +23,10 @@ app.get('/horoscope', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'horoscope.html'));
 });
 
+app.get('/history', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'history.html'));
+});
+
 app.get('/api/quote-of-day', (req, res) => {
   const quotes = [
     "L'amour, c'est être toujours en retard à cause de l'autre.",
@@ -94,6 +98,42 @@ app.get('/api/tests', async (req, res) => {
     res.json(parsed);
   } catch (err) {
     console.error('Error fetching tests:', err);
+    res.status(500).json({ error: 'Erreur serveur' });
+  }
+});
+
+// Rechercher dans l'historique
+app.get('/api/tests/search', async (req, res) => {
+  try {
+    const { name, zodiac } = req.query;
+    
+    if (!name && !zodiac) {
+      return res.status(400).json({ error: 'Paramètre name ou zodiac requis' });
+    }
+    
+    let query = 'SELECT id, name1, name2, score, method, extras, created_at FROM tests WHERE 1=1';
+    const params = [];
+    let paramCount = 0;
+    
+    if (name) {
+      paramCount++;
+      query += ` AND (LOWER(name1) LIKE $${paramCount} OR LOWER(name2) LIKE $${paramCount})`;
+      params.push(`%${name.toLowerCase()}%`);
+    }
+    
+    if (zodiac) {
+      paramCount++;
+      query += ` AND ((extras->>'zodiac1') = $${paramCount} OR (extras->>'zodiac2') = $${paramCount})`;
+      params.push(zodiac.toLowerCase());
+    }
+    
+    query += ' ORDER BY created_at DESC LIMIT 100';
+    
+    const rows = await db.query(query, params);
+    const parsed = rows.map(r => ({ ...r, extras: r.extras || null }));
+    res.json(parsed);
+  } catch (err) {
+    console.error('Error searching tests:', err);
     res.status(500).json({ error: 'Erreur serveur' });
   }
 });

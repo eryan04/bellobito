@@ -216,7 +216,7 @@ function animateProgressBar(elementId, percentage, delay = 0) {
     }, delay);
 }
 
-function saveToHistory(data) {
+async function saveToHistory(data) {
     const history = JSON.parse(localStorage.getItem('bellobito_history') || '[]');
     const entry = {
         ...data,
@@ -227,6 +227,29 @@ function saveToHistory(data) {
     if (history.length > 10) history.pop();
     localStorage.setItem('bellobito_history', JSON.stringify(history));
     updateStats();
+    
+    // Sauvegarder dans la base de données
+    try {
+        await fetch('/api/tests', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name1: data.name1,
+                name2: data.name2,
+                score: data.finalScore,
+                method: 'advanced',
+                extras: {
+                    zodiac1: data.zodiac1,
+                    zodiac2: data.zodiac2,
+                    nameScore: data.nameScore,
+                    zodiacScore: data.zodiacScore,
+                    numerologyScore: data.numerologyScore
+                }
+            })
+        });
+    } catch (err) {
+        console.error('Erreur sauvegarde DB:', err);
+    }
 }
 
 function updateStats() {
