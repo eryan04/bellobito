@@ -228,9 +228,9 @@ async function saveToHistory(data) {
     localStorage.setItem('bellobito_history', JSON.stringify(history));
     updateStats();
     
-    // Sauvegarder dans la base de données
+    // Sauvegarder dans la base de données et rediriger
     try {
-        await fetch('/api/tests', {
+        const response = await fetch('/api/tests', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -247,6 +247,14 @@ async function saveToHistory(data) {
                 }
             })
         });
+        
+        if (response.ok) {
+            const result = await response.json();
+            // Rediriger vers la page de résultat
+            if (result.id) {
+                window.location.href = `/result/${result.id}`;
+            }
+        }
     } catch (err) {
         console.error('Erreur sauvegarde DB:', err);
     }
@@ -354,29 +362,9 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => showToast(easterEgg.message, 'success'), 1500);
         }
         
-        document.getElementById('message').textContent = getMessage(finalScore);
-        document.getElementById('nameAnalysis').textContent = getNameAnalysis(name1, name2, nameScore);
-        document.getElementById('zodiacAnalysis').textContent = getZodiacAnalysis(zodiac1, zodiac2, zodiacScore);
-        document.getElementById('numerologyAnalysis').textContent = getNumerologyAnalysis(num1, num2);
-        document.getElementById('advice').textContent = getAdvice(finalScore);
-        
-        document.getElementById('nameScore').textContent = Math.round(nameScore) + '%';
-        document.getElementById('zodiacScore').textContent = Math.round(zodiacScore) + '%';
-        document.getElementById('numerologyScore').textContent = Math.round(numerologyScore) + '%';
-        
-        animateProgressBar('nameBar', nameScore, 200);
-        animateProgressBar('zodiacBar', zodiacScore, 400);
-        animateProgressBar('numerologyBar', numerologyScore, 600);
-        
-        document.getElementById('testForm').classList.add('hidden');
-        document.getElementById('result').classList.remove('hidden');
-        
+        // Sauvegarder et rediriger vers la page de résultat
+        showToast('Calcul en cours...', 'success');
         saveToHistory({ name1, name2, zodiac1, zodiac2, nameScore, zodiacScore, numerologyScore, finalScore });
-        
-        animateScore(finalScore);
-        animateProgress(finalScore);
-        
-        setTimeout(() => showToast('Test de compatibilité réussi !'), 500);
     });
     
     resetBtn.addEventListener('click', () => {

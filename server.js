@@ -27,6 +27,10 @@ app.get('/history', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'history.html'));
 });
 
+app.get('/result/:id', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'result.html'));
+});
+
 app.get('/api/quote-of-day', (req, res) => {
   const quotes = [
     "L'amour, c'est être toujours en retard à cause de l'autre.",
@@ -47,13 +51,13 @@ app.get('/api/quote-of-day', (req, res) => {
 // Statistiques du site
 app.get('/api/stats', async (req, res) => {
   try {
-    const totalTests = await db.query('SELECT COUNT(*) as count FROM tests');
-    const couplesFormes = await db.query('SELECT COUNT(*) as count FROM tests WHERE score >= 50');
+    const totalTests = await db.query('SELECT COUNT(*)::int as count FROM tests');
+    const couplesFormes = await db.query('SELECT COUNT(*)::int as count FROM tests WHERE score >= 50');
     
     res.json({
-      testsRealises: parseInt(totalTests[0]?.count || 0),
+      testsRealises: totalTests[0]?.count || 0,
       satisfaction: 95,
-      couplesFormes: parseInt(couplesFormes[0]?.count || 0)
+      couplesFormes: couplesFormes[0]?.count || 0
     });
   } catch (err) {
     console.error('Error fetching stats:', err);
@@ -102,7 +106,8 @@ app.post('/api/tests', async (req, res) => {
       [name1, name2, Number(score), method || null, extras ? JSON.stringify(extras) : null]
     );
 
-    res.json({ id: result.insertId, name1, name2, score: Number(score), method, extras });
+    const insertedId = result[0]?.id;
+    res.json({ id: insertedId, name1, name2, score: Number(score), method, extras });
   } catch (err) {
     console.error('Error saving test:', err);
     res.status(500).json({ error: 'Erreur serveur' });
@@ -155,6 +160,27 @@ app.get('/api/tests/search', async (req, res) => {
     res.json(parsed);
   } catch (err) {
     console.error('Error searching tests:', err);
+    res.status(500).json({ error: 'Erreur serveur' });
+  }
+});
+
+// Récupérer un test spécifique par ID
+app.get('/api/tests/:id', async (req, res) => {
+  try {
+    const id = parseInt(req.params.id, 10);
+    if (isNaN(id)) {
+      return res.status(400).json({ error: 'ID invalide' });
+    }
+    
+    const rows = await db.query('SELECT id, name1, name2, score, method, extras, created_at FROM tests WHERE id = $1', [id]);
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Test non trouvé' });
+    }
+    
+    res.json({ ...rows[0], extras: rows[0].extras || null });
+  } catch (err) {
+    console.error('Error fetching test:', err);
     res.status(500).json({ error: 'Erreur serveur' });
   }
 });
