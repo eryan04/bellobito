@@ -140,9 +140,100 @@ function displayResults(tests, searchTerm = null) {
                 ` : ''}
                 
                 <div class="result-date">📅 ${formattedDate}</div>
+                
+                <div class="result-actions">
+                    <button class="result-btn result-btn-view" onclick="viewResult(${test.id})">
+                        👁️ Voir
+                    </button>
+                    <button class="result-btn result-btn-share" onclick="shareResult(${test.id}, '${test.name1}', '${test.name2}', ${test.score})">
+                        📤 Partager
+                    </button>
+                </div>
             </div>
         `;
     }).join('');
+}
+
+// Voir le résultat complet
+function viewResult(testId) {
+    window.location.href = `/result/${testId}`;
+}
+
+// Partager un résultat
+function shareResult(testId, name1, name2, score) {
+    const url = `${window.location.origin}/result/${testId}`;
+    const text = `${name1} & ${name2} : ${score}% de compatibilité sur BelloBito ! 💖\n\nVoir le résultat complet :`;
+    
+    if (navigator.share) {
+        navigator.share({
+            title: `Résultat BelloBito - ${name1} & ${name2}`,
+            text: text,
+            url: url
+        }).then(() => {
+            console.log('Partage réussi');
+        }).catch((error) => {
+            if (error.name !== 'AbortError') {
+                copyToClipboard(url);
+            }
+        });
+    } else {
+        copyToClipboard(url);
+    }
+}
+
+// Copier dans le presse-papier
+function copyToClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+            showToast('Lien copié dans le presse-papier ! 📋');
+        }).catch(() => {
+            fallbackCopyToClipboard(text);
+        });
+    } else {
+        fallbackCopyToClipboard(text);
+    }
+}
+
+function fallbackCopyToClipboard(text) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    textArea.style.top = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
+    try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+            showToast('Lien copié dans le presse-papier ! 📋');
+        } else {
+            showToast('Copié ! 📋');
+        }
+    } catch (err) {
+        console.error('Erreur de copie:', err);
+        showToast('Lien copié ! 📋');
+    }
+    
+    document.body.removeChild(textArea);
+}
+
+// Afficher un toast
+function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.innerHTML = `
+        <span class="toast-icon">${type === 'success' ? '✓' : 'ℹ'}</span>
+        <span class="toast-message">${message}</span>
+    `;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => toast.classList.add('toast-show'), 10);
+    setTimeout(() => {
+        toast.classList.remove('toast-show');
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
 }
 
 // Afficher une erreur

@@ -199,6 +199,44 @@
             font-size: 0.9rem;
         }
         
+        .result-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .result-btn {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .result-btn-view {
+            background: var(--gradient);
+            color: white;
+        }
+        
+        .result-btn-view:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.3);
+        }
+        
+        .result-btn-share {
+            background: rgba(255, 107, 157, 0.1);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .result-btn-share:hover {
+            background: rgba(255, 107, 157, 0.2);
+            transform: translateY(-2px);
+        }
+        
         .loading {
             text-align: center;
             padding: 60px;
