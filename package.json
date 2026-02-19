@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "init:pg": "node tools/init_postgres.js",
+    "postdeploy": "node tools/init_postgres.js",
     "dev": "bash start.sh",
     "setup": "bash setup.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
