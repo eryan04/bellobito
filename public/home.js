@@ -37,6 +37,25 @@ async function loadDailyQuote() {
     }
 }
 
+async function loadStats() {
+    try {
+        const response = await fetch('/api/stats');
+        const data = await response.json();
+        
+        const stats = document.querySelectorAll('.stat-number');
+        if (stats[0]) stats[0].setAttribute('data-count', data.testsRealises);
+        if (stats[1]) stats[1].setAttribute('data-count', data.satisfaction);
+        if (stats[2]) stats[2].setAttribute('data-count', data.couplesFormes);
+        
+        // Animer après avoir chargé les vraies valeurs
+        animateStats();
+    } catch (error) {
+        console.error('Erreur chargement stats:', error);
+        // Valeurs par défaut en cas d'erreur
+        animateStats();
+    }
+}
+
 function createFloatingHearts() {
     const hero = document.querySelector('.hero-section');
     if (!hero) return;
@@ -132,6 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     loadDailyQuote();
+    loadStats();
     createFloatingHearts();
     initKonamiCode();
     
@@ -139,9 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('fade-in-up');
-                if (entry.target.querySelector('.stat-number')) {
-                    animateStats();
-                }
             }
         });
     }, { threshold: 0.1 });

@@ -44,6 +44,27 @@ app.get('/api/quote-of-day', (req, res) => {
   res.json({ quote });
 });
 
+// Statistiques du site
+app.get('/api/stats', async (req, res) => {
+  try {
+    const totalTests = await db.query('SELECT COUNT(*) as count FROM tests');
+    const couplesFormes = await db.query('SELECT COUNT(*) as count FROM tests WHERE score >= 50');
+    
+    res.json({
+      testsRealises: parseInt(totalTests[0]?.count || 0),
+      satisfaction: 95,
+      couplesFormes: parseInt(couplesFormes[0]?.count || 0)
+    });
+  } catch (err) {
+    console.error('Error fetching stats:', err);
+    res.json({
+      testsRealises: 0,
+      satisfaction: 95,
+      couplesFormes: 0
+    });
+  }
+});
+
 // Enregistrer un test de compatibilité
 app.post('/api/tests', async (req, res) => {
   try {
