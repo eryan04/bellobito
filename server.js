@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path');
+require('dotenv').config();
+const db = require('./src/db');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -36,6 +38,64 @@ app.get('/api/quote-of-day', (req, res) => {
   const quote = quotes[dayOfYear % quotes.length];
   
   res.json({ quote });
+});
+
+// Enregistrer un test de compatibilité
+app.post('/api/tests', async (req, res) => {
+  try {
+    const { name1, name2, score, method, extras } = req.body;
+    if (!name1 || !name2 || typeof score === 'undefined') {
+      return res.status(400).json({ error: 'name1, name2 et score sont requis' });
+    }
+
+    // If zodiac signs are provided in extras, try to find an existing test
+    // with the same pair of names and the same signs (either order).
+    const extrasObj = extras && typeof extras === 'string' ? (() => { try { return JSON.parse(extras); } catch(e){ return null } })() : (extras || {});
+    const z1 = extrasObj && extrasObj.zodiac1 ? String(extrasObj.zodiac1).toLowerCase() : null;
+    const z2 = extrasObj && extrasObj.zodiac2 ? String(extrasObj.zodiac2).toLowerCase() : null;
+
+    if (z1 && z2) {
+      const n1 = String(name1).toLowerCase();
+      const n2 = String(name2).toLowerCase();
+
+      const rows = await db.query(
+        `SELECT id, name1, name2, score, method, extras, created_at FROM tests
+         WHERE (LOWER(name1) = $1 AND LOWER(name2) = $2 AND (extras->>'zodiac1') = $3 AND (extras->>'zodiac2') = $4)
+            OR (LOWER(name1) = $2 AND LOWER(name2) = $1 AND (extras->>'zodiac1') = $4 AND (extras->>'zodiac2') = $3)
+         LIMIT 1`,
+        [n1, n2, z1, z2]
+      );
+
+      if (rows && rows.length > 0) {
+        const existing = rows[0];
+        return res.json({ id: existing.id, name1: existing.name1, name2: existing.name2, score: Number(existing.score), method: existing.method, extras: existing.extras, reused: true });
+      }
+    }
+
+    const result = await db.query(
+      'INSERT INTO tests (name1, name2, score, method, extras) VALUES ($1, $2, $3, $4, $5) RETURNING id',
+      [name1, name2, Number(score), method || null, extras ? JSON.stringify(extras) : null]
+    );
+
+    res.json({ id: result.insertId, name1, name2, score: Number(score), method, extras });
+  } catch (err) {
+    console.error('Error saving test:', err);
+    res.status(500).json({ error: 'Erreur serveur' });
+  }
+});
+
+// Récupérer l'historique des tests
+app.get('/api/tests', async (req, res) => {
+  try {
+    const limit = Math.min(100, parseInt(req.query.limit || '50', 10));
+    const rows = await db.query('SELECT id, name1, name2, score, method, extras, created_at FROM tests ORDER BY created_at DESC LIMIT $1', [limit]);
+    // extras is JSONB in Postgres so it's already an object
+    const parsed = rows.map(r => ({ ...r, extras: r.extras || null }));
+    res.json(parsed);
+  } catch (err) {
+    console.error('Error fetching tests:', err);
+    res.status(500).json({ error: 'Erreur serveur' });
+  }
 });
 
 app.listen(PORT, () => {
