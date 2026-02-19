@@ -1139,6 +1139,14 @@ html.dark-mode .progress-bar-container {
     border-left: 4px solid #00b894;
 }
 
+.toast-error {
+    border-left: 4px solid #d63031;
+}
+
+.toast-info {
+    border-left: 4px solid #0984e3;
+}
+
 .toast-icon {
     width: 24px;
     height: 24px;

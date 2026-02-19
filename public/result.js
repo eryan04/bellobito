@@ -252,8 +252,14 @@ function shareResult() {
             title: `Résultat BelloBito - ${namesEl.textContent}`,
             text: text,
             url: url
-        }).catch(() => {
-            copyToClipboard(url);
+        }).then(() => {
+            console.log('Partage réussi via Web Share API');
+        }).catch((error) => {
+            // Si l'utilisateur annule le partage ou si ça échoue
+            if (error.name !== 'AbortError') {
+                console.log('Fallback vers copie du lien');
+                copyToClipboard(url);
+            }
         });
     } else {
         copyToClipboard(url);
@@ -261,11 +267,42 @@ function shareResult() {
 }
 
 function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(() => {
-        showToast('Lien copié dans le presse-papier ! 📋');
-    }).catch(() => {
-        showToast('Impossible de copier le lien', 'error');
-    });
+    // Méthode moderne (clipboard API)
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+            showToast('Lien copié dans le presse-papier ! 📋');
+        }).catch(() => {
+            fallbackCopyToClipboard(text);
+        });
+    } else {
+        // Fallback pour HTTP ou anciens navigateurs
+        fallbackCopyToClipboard(text);
+    }
+}
+
+function fallbackCopyToClipboard(text) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    textArea.style.top = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
+    try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+            showToast('Lien copié dans le presse-papier ! 📋');
+        } else {
+            showToast('Copié ! 📋 Lien : ' + text);
+        }
+    } catch (err) {
+        console.error('Erreur de copie:', err);
+        showToast('Lien : ' + text, 'info');
+    }
+    
+    document.body.removeChild(textArea);
 }
 
 function showToast(message, type = 'success') {
