@@ -51,13 +51,13 @@ app.get('/api/quote-of-day', (req, res) => {
 // Statistiques du site
 app.get('/api/stats', async (req, res) => {
   try {
-    const totalTests = await db.query('SELECT COUNT(*)::int as count FROM tests');
-    const couplesFormes = await db.query('SELECT COUNT(*)::int as count FROM tests WHERE score >= 50');
+    const totalTests = await db.query('SELECT COUNT(*) as count FROM tests');
+    const couplesFormes = await db.query('SELECT COUNT(*) as count FROM tests WHERE score >= 50');
     
     res.json({
-      testsRealises: totalTests[0]?.count || 0,
+      testsRealises: parseInt(totalTests[0]?.count || '0', 10),
       satisfaction: 95,
-      couplesFormes: couplesFormes[0]?.count || 0
+      couplesFormes: parseInt(couplesFormes[0]?.count || '0', 10)
     });
   } catch (err) {
     console.error('Error fetching stats:', err);
@@ -106,7 +106,7 @@ app.post('/api/tests', async (req, res) => {
       [name1, name2, Number(score), method || null, extras ? JSON.stringify(extras) : null]
     );
 
-    const insertedId = result[0]?.id;
+    const insertedId = result.insertId || (result.rows && result.rows[0] ? result.rows[0].id : null);
     res.json({ id: insertedId, name1, name2, score: Number(score), method, extras });
   } catch (err) {
     console.error('Error saving test:', err);
