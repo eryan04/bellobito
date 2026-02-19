@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+*:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
 :root {
     --primary: #ff6b9d;
     --primary-dark: #e85a8a;
@@ -12,29 +17,54 @@
     --text-dark: #2d3436;
     --text-light: #636e72;
     --bg-light: #f8f9fa;
+    --bg-main: #ffffff;
     --white: #ffffff;
+    --card-bg: #ffffff;
+    --border-color: #e9ecef;
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.12);
     --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.15);
 }
 
 html.dark-mode {
-    --text-dark: #f8f9fa;
-    --text-light: #b8bcc2;
-    --bg-light: #2d3436;
-    --white: #1e272e;
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.5);
+    --text-dark: #f1f3f5;
+    --text-light: #adb5bd;
+    --bg-light: #1a1d23;
+    --bg-main: #0f1115;
+    --white: #1a1d23;
+    --card-bg: #1a1d23;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.8);
 }
 
 html {
     scroll-behavior: smooth;
 }
 
+/* Scrollbar personnalisé */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #e85a8a 0%, #e04a5e 100%);
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     color: var(--text-dark);
+    background-color: var(--bg-main);
     line-height: 1.6;
     overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -108,8 +138,8 @@ html.dark-mode .theme-toggle:hover {
 }
 
 html.dark-mode .navbar {
-    background: rgba(30, 39, 46, 0.98);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(26, 29, 35, 0.98);
+    border-bottom: 1px solid rgba(255, 107, 157, 0.2);
 }
 
 .nav-container {
@@ -186,12 +216,14 @@ html.dark-mode .navbar {
 }
 
 html.dark-mode .hero-section {
-    background: linear-gradient(135deg, #2c1a3d 0%, #3d1f2e 100%);
+    background: linear-gradient(135deg, #1a1d23 0%, #0f1115 100%);
 }
 
 .hero-content {
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
+    padding: 0 1rem;
 }
 
 .hero-main {
@@ -263,8 +295,8 @@ html.dark-mode .hero-badge {
 .hero-buttons {
     display: flex;
     gap: 1rem;
-    justify-content: center;
-    margin-bottom: 4rem;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -281,7 +313,7 @@ html.dark-mode .hero-badge {
 
 .btn-primary {
     background: var(--gradient);
-    color: var(--white);
+    color: white;
     box-shadow: 0 4px 15px rgba(245, 87, 108, 0.3);
 }
 
@@ -290,15 +322,20 @@ html.dark-mode .hero-badge {
     box-shadow: 0 6px 20px rgba(245, 87, 108, 0.4);
 }
 
+.btn-primary:active {
+    transform: translateY(0);
+}
+
 .btn-secondary {
-    background: var(--white);
+    background: var(--card-bg);
     color: var(--primary);
     border: 2px solid var(--primary);
 }
 
 .btn-secondary:hover {
     background: var(--primary);
-    color: var(--white);
+    color: white;
+    transform: translateY(-2px);
 }
 
 .btn-outline {
@@ -309,7 +346,8 @@ html.dark-mode .hero-badge {
 
 .btn-outline:hover {
     background: var(--primary);
-    color: var(--white);
+    color: white;
+    transform: translateY(-2px);
 }
 
 .btn-large {
@@ -348,22 +386,28 @@ html.dark-mode .hero-badge {
 
 .about-section {
     padding: 80px 2rem;
-    background: var(--white);
+    background: var(--bg-main);
     transition: background 0.3s ease;
 }
 
 html.dark-mode .about-section {
-    background: #1e272e;
+    background: var(--bg-main);
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
+    padding: 0 1rem;
 }
 
 .section-header {
     text-align: center;
     margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .section-title {
@@ -382,21 +426,23 @@ html.dark-mode .about-section {
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
+    width: 100%;
 }
 
 .feature-card {
     padding: 2rem;
-    background: var(--white);
+    background: var(--card-bg);
     border-radius: 16px;
     box-shadow: var(--shadow-sm);
     transition: all 0.3s;
-    border: 1px solid #f0f0f0;
+    border: 1px solid var(--border-color);
 }
 
 html.dark-mode .feature-card {
-    border-color: rgba(255, 255, 255, 0.1);
+    background: var(--card-bg);
+    border-color: var(--border-color);
 }
 
 .feature-card:hover {
@@ -429,17 +475,23 @@ html.dark-mode .feature-card {
 }
 
 html.dark-mode .test-section {
-    background: #1e272e;
+    background: var(--bg-main);
 }
 
 .test-container {
     max-width: 700px;
     margin: 0 auto;
+    width: 100%;
+    padding: 0 1rem;
 }
 
 .test-header {
     text-align: center;
     margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .test-title {
@@ -455,11 +507,12 @@ html.dark-mode .test-section {
 }
 
 .test-form {
-    background: var(--white);
+    background: var(--card-bg);
     padding: 3rem;
     border-radius: 20px;
     box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
 }
 
 .form-row {
@@ -468,11 +521,13 @@ html.dark-mode .test-section {
     gap: 2rem;
     align-items: end;
     margin-bottom: 2rem;
+    width: 100%;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .form-label {
@@ -484,18 +539,38 @@ html.dark-mode .test-section {
 
 .form-input {
     padding: 1rem;
-    border: 2px solid #e9ecef;
+    border: 2px solid var(--border-color);
     border-radius: 12px;
     font-size: 1rem;
     transition: all 0.3s;
     font-family: inherit;
-    background: var(--white);
+    background: var(--bg-main);
     color: var(--text-dark);
 }
 
 html.dark-mode .form-input {
-    background: var(--bg-light);
-    border-color: rgba(255, 255, 255, 0.1);
+    background: #0f1115;
+    border-color: var(--border-color);
+    color: var(--text-dark);
+}
+
+select.form-input {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23636e72' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 3rem;
+}
+
+html.dark-mode select.form-input {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23adb5bd' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+}
+
+select.form-input option {
+    background: var(--card-bg);
+    color: var(--text-dark);
+    padding: 0.5rem;
 }
 
 .form-input:focus {
@@ -505,7 +580,9 @@ html.dark-mode .form-input {
 }
 
 html.dark-mode .form-input:focus {
-    background: var(--white);
+    background: #0f1115;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(255, 107, 157, 0.2);
 }
 
 .heart-divider {
@@ -526,12 +603,13 @@ html.dark-mode .form-input:focus {
 }
 
 .result-container {
-    background: var(--white);
+    background: var(--card-bg);
     padding: 3rem;
     border-radius: 20px;
     box-shadow: var(--shadow-md);
     animation: slideUp 0.5s ease-out;
     transition: background 0.3s ease;
+    border: 1px solid var(--border-color);
 }
 
 @keyframes slideUp {
@@ -577,8 +655,12 @@ html.dark-mode .form-input:focus {
 
 .circle-bg {
     fill: none;
-    stroke: #f0f0f0;
+    stroke: var(--border-color);
     stroke-width: 12;
+}
+
+html.dark-mode .circle-bg {
+    stroke: rgba(255, 255, 255, 0.1);
 }
 
 .circle-progress {
@@ -625,6 +707,7 @@ html.dark-mode .form-input:focus {
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
     margin-bottom: 2rem;
+    width: 100%;
 }
 
 .detail-box {
@@ -632,10 +715,12 @@ html.dark-mode .form-input:focus {
     background: var(--bg-light);
     border-radius: 12px;
     transition: background 0.3s ease;
+    border: 1px solid var(--border-color);
 }
 
 html.dark-mode .detail-box {
-    background: #2d3436;
+    background: #0f1115;
+    border-color: var(--border-color);
 }
 
 .detail-box h4 {
@@ -655,7 +740,7 @@ html.dark-mode .detail-box {
 }
 
 .quote-of-day {
-    background: var(--white);
+    background: var(--card-bg);
     border-radius: 20px;
     padding: 2rem;
     margin: 3rem auto;
@@ -665,6 +750,7 @@ html.dark-mode .detail-box {
     align-items: center;
     gap: 1.5rem;
     transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
 }
 
 .quote-of-day:hover {
@@ -702,11 +788,20 @@ html.dark-mode .detail-box {
     padding: 120px 2rem 80px;
     background: var(--bg-light);
     min-height: 100vh;
+    transition: background 0.3s ease;
+}
+
+html.dark-mode .horoscope-section {
+    background: var(--bg-main);
 }
 
 .horoscope-header {
     text-align: center;
     margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .horoscope-date {
@@ -722,14 +817,21 @@ html.dark-mode .detail-box {
     gap: 2rem;
     max-width: 1400px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .horoscope-card {
-    background: var(--white);
+    background: var(--card-bg);
     border-radius: 20px;
     padding: 2rem;
     box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+html.dark-mode .horoscope-card {
+    background: var(--card-bg);
+    border-color: var(--border-color);
 }
 
 .horoscope-card:hover {
@@ -848,12 +950,18 @@ html.dark-mode .btn-icon:hover {
     right: -400px;
     width: 400px;
     height: 100vh;
-    background: var(--white);
+    background: var(--card-bg);
     box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
     z-index: 2000;
     transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     display: flex;
     flex-direction: column;
+    border-left: 1px solid var(--border-color);
+}
+
+html.dark-mode .history-panel {
+    background: var(--card-bg);
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.8);
 }
 
 .history-panel.history-open {
@@ -988,10 +1096,14 @@ html.dark-mode .history-header {
 .progress-bar-container {
     width: 100%;
     height: 8px;
-    background: var(--bg-light);
+    background: var(--border-color);
     border-radius: 10px;
     overflow: hidden;
     margin: 0.75rem 0;
+}
+
+html.dark-mode .progress-bar-container {
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .progress-bar {
@@ -1007,7 +1119,7 @@ html.dark-mode .history-header {
     bottom: -100px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--white);
+    background: var(--card-bg);
     padding: 1rem 2rem;
     border-radius: 50px;
     box-shadow: var(--shadow-lg);
@@ -1016,6 +1128,7 @@ html.dark-mode .history-header {
     gap: 0.75rem;
     z-index: 3000;
     transition: bottom 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border: 1px solid var(--border-color);
 }
 
 .toast-show {
@@ -1243,17 +1356,6 @@ html.dark-mode .glass-effect {
     }
 }
 
-.horoscope-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-html.dark-mode .horoscope-card {
-    background: linear-gradient(135deg, rgba(30, 39, 46, 0.9), rgba(30, 39, 46, 0.7));
-    border-color: rgba(255, 255, 255, 0.1);
-}
-
 .card-pulse {
     animation: cardPulse 0.6s ease-out;
 }
@@ -1348,14 +1450,16 @@ html.dark-mode .horoscope-card {
 }
 
 .footer {
-    background: var(--text-dark);
+    background: #1a1d23;
     color: var(--white);
     padding: 3rem 2rem;
     text-align: center;
+    border-top: 1px solid var(--border-color);
 }
 
 html.dark-mode .footer {
-    background: #000;
+    background: #0a0c0f;
+    border-top-color: rgba(255, 107, 157, 0.2);
 }
 
 .footer-content {

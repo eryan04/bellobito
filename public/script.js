@@ -10,14 +10,14 @@ function initTheme() {
     
     const savedTheme = localStorage.getItem('bellobito_theme');
     if (savedTheme === 'dark') {
-        document.body.classList.add('dark-mode');
-        themeIcon.textContent = '☀️';
+        document.documentElement.classList.add('dark-mode');
+        if (themeIcon) themeIcon.textContent = '☀️';
     }
     
     themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        const isDark = document.body.classList.contains('dark-mode');
-        themeIcon.textContent = isDark ? '☀️' : '🌙';
+        document.documentElement.classList.toggle('dark-mode');
+        const isDark = document.documentElement.classList.contains('dark-mode');
+        if (themeIcon) themeIcon.textContent = isDark ? '☀️' : '🌙';
         localStorage.setItem('bellobito_theme', isDark ? 'dark' : 'light');
     });
 }
