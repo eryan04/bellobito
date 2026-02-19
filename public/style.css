@@ -330,6 +330,7 @@ html.dark-mode .hero-badge {
     background: var(--card-bg);
     color: var(--primary);
     border: 2px solid var(--primary);
+    text-align: center;
 }
 
 .btn-secondary:hover {
@@ -342,6 +343,7 @@ html.dark-mode .hero-badge {
     background: transparent;
     color: var(--primary);
     border: 2px solid var(--primary);
+    text-align: center;
 }
 
 .btn-outline:hover {
@@ -737,6 +739,8 @@ html.dark-mode .detail-box {
 .result-actions {
     display: flex;
     gap: 1rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .quote-of-day {
