@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { Client } = require('pg');
+require('dotenv').config();
 
 const sqlFile = path.join(__dirname, '..', 'db', 'init_postgres.sql');
 
