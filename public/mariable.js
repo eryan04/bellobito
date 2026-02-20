@@ -150,7 +150,7 @@ const allQuestions = [
     },
     {
         id: 21,
-        text: "Vous êtes toujours pas over votre ex ?",
+        text: "Vous êtes toujours pas remis(e) votre ex ?",
         type: "boolean",
         goodAnswer: "no"
     },
