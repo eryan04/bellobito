@@ -42,7 +42,7 @@ const allQuestions = [
     },
     {
         id: 3,
-        text: "Vous regardez le tel de votre partenaire en cachette ?",
+        text: "Vous regardez le bigo de votre partenaire en cachette ?",
         type: "boolean",
         goodAnswer: "no"
     },
@@ -60,13 +60,13 @@ const allQuestions = [
     },
     {
         id: 6,
-        text: "Vous avez déjà trompé votre partenaire (même un simple kiss) ?",
+        text: "Vous avez déjà trompé votre partenaire (même un smack) ?",
         type: "boolean",
         goodAnswer: "no"
     },
     {
         id: 7,
-        text: "Vous utilisez Tinder/Bumble en étant en couple ?",
+        text: "Vous utilisez Tinder/Hinge/Grindr en étant en couple ?",
         type: "boolean",
         goodAnswer: "no"
     },
@@ -84,7 +84,7 @@ const allQuestions = [
     },
     {
         id: 10,
-        text: "Vous êtes libre de toute relation ou situationship actuellement ?",
+        text: "Une babies vous suffit ?",
         type: "boolean",
         goodAnswer: "yes"
     },
@@ -108,9 +108,9 @@ const allQuestions = [
     },
     {
         id: 14,
-        text: "Vous avez déjà envoyé des nudes à quelqu'un ?",
+        text: "Vous avez déjà envoyé des nudes à une autre personne que votre partenaire officiel ?",
         type: "boolean",
-        goodAnswer: "maybe"
+        goodAnswer: "no"
     },
     {
         id: 15,
@@ -132,7 +132,7 @@ const allQuestions = [
     },
     {
         id: 18,
-        text: "Vous avez déjà couché avec l'ex de votre pote ?",
+        text: "Vous avez déjà couché avec l'ex de votre shab ?",
         type: "boolean",
         goodAnswer: "no"
     },
@@ -156,7 +156,7 @@ const allQuestions = [
     },
     {
         id: 22,
-        text: "Vous avez déjà simulé une maladie pour annuler un date ?",
+        text: "Vous avez déjà simulé une IST (ou maladie) pour annuler un date ?",
         type: "boolean",
         goodAnswer: "no"
     },
@@ -168,15 +168,15 @@ const allQuestions = [
     },
     {
         id: 24,
-        text: "Vous êtes du genre sugar baby/sugar daddy ?",
+        text: "Vous êtes du genre sugar daddy/sugar mommy ?",
         type: "boolean",
         goodAnswer: "no"
     },
     {
         id: 25,
-        text: "Les kids c'est niet pour vous ?",
+        text: "Vous êtes chaud(e) d'avoir des minots ?",
         type: "boolean",
-        goodAnswer: "maybe"
+        goodAnswer: "yes"
     },
     {
         id: 26,
@@ -194,13 +194,13 @@ const allQuestions = [
         id: 28,
         text: "Vous avez déjà refusé quelqu'un à cause de son physique ?",
         type: "boolean",
-        goodAnswer: "maybe"
+        goodAnswer: "no"
     },
     {
         id: 29,
-        text: "Vous êtes en mode couple goals sur les réseaux mais c'est fake ?",
+        text: "L'origine de votre partenaire vous est indifférente ?",
         type: "boolean",
-        goodAnswer: "no"
+        goodAnswer: "yes"
     },
     {
         id: 30,
@@ -240,7 +240,7 @@ const allQuestions = [
     },
     {
         id: 36,
-        text: "Vous savez où vous voulez être dans 5 ans (vraiment) ?",
+        text: "Vous savez où vous voulez être dans 5 ans (sah 2 sah) ?",
         type: "boolean",
         goodAnswer: "yes"
     },
@@ -252,7 +252,7 @@ const allQuestions = [
     },
     {
         id: 38,
-        text: "Vous acceptez que votre partenaire ait des potes de son ex genre ?",
+        text: "Vous acceptez que votre partenaire ait des potes du sexe opposé ?",
         type: "boolean",
         goodAnswer: "yes"
     },
@@ -264,7 +264,7 @@ const allQuestions = [
     },
     {
         id: 40,
-        text: "Friends with benefits c'est votre zone de confort ?",
+        text: "Sexfriends c'est votre zone de confort ?",
         type: "boolean",
         goodAnswer: "no"
     },
@@ -282,7 +282,7 @@ const allQuestions = [
     },
     {
         id: 43,
-        text: "Vos parents sont un bon exemple de couple pour vous ?",
+        text: "Vos pouvez mentir à votre clochard/niatta ?",
         type: "boolean",
         goodAnswer: "yes"
     },
