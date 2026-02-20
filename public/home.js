@@ -349,3 +349,35 @@ function initCursorEffect() {
     const observer = new MutationObserver(updateInteractives);
     observer.observe(document.body, { childList: true, subtree: true });
 }
+
+// Easter Egg - Modale "KESTUFOU LA FRANJO"
+const navBrand = document.querySelector('.nav-brand');
+const easterEggModal = document.getElementById('easterEggModal');
+const easterEggClose = document.querySelector('.easter-egg-close');
+const easterEggOverlay = document.querySelector('.easter-egg-overlay');
+
+if (navBrand && easterEggModal) {
+    navBrand.style.cursor = 'pointer';
+    
+    navBrand.addEventListener('click', () => {
+        easterEggModal.style.display = 'block';
+        setTimeout(() => {
+            easterEggModal.classList.add('show');
+        }, 10);
+    });
+    
+    const closeModal = () => {
+        easterEggModal.classList.remove('show');
+        setTimeout(() => {
+            easterEggModal.style.display = 'none';
+        }, 300);
+    };
+    
+    if (easterEggClose) {
+        easterEggClose.addEventListener('click', closeModal);
+    }
+    
+    if (easterEggOverlay) {
+        easterEggOverlay.addEventListener('click', closeModal);
+    }
+}
