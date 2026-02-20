@@ -1286,6 +1286,7 @@ html.dark-mode .horoscope-section {
     box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
     border: 1px solid var(--border-color);
+    will-change: transform;
 }
 
 html.dark-mode .horoscope-card {
@@ -1294,8 +1295,8 @@ html.dark-mode .horoscope-card {
 }
 
 .horoscope-card:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-15px) scale(1.15) !important;
+    box-shadow: var(--shadow-lg) !important;
 }
 
 .horoscope-sign {
