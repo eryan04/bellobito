@@ -246,16 +246,12 @@ html.dark-mode .navbar {
 }
 
 .hero-section {
-    padding: 0 2rem;
-    min-height: 100vh;
+    padding: 0 2rem 60px;
     background: linear-gradient(135deg, #ffeef8 0%, #fff5f7 100%);
     text-align: center;
     transition: background 0.3s ease;
     position: relative;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .hero-section::before {
@@ -295,16 +291,14 @@ html.dark-mode .hero-section {
     padding: 0 1rem;
     position: relative;
     z-index: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
 }
 
 .hero-main {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-end;
     gap: 4rem;
+    margin-bottom: 4rem;
+    margin-top: -100px;
     animation: fadeInUp 1s ease-out;
 }
 
@@ -545,7 +539,9 @@ html.dark-mode .btn-outline:hover {
     justify-content: center;
     padding-top: 3rem;
     border-top: 1px solid rgba(245, 87, 108, 0.2);
-    text-align: center;\n    opacity: 0;\n    transform: translateY(30px);\n    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);\n}\n\n.hero-stats.visible {\n    opacity: 1;\n    transform: translateY(0);\n}
+    text-align: center;
+    animation: fadeInUp 1s ease-out 0.8s both;
+}
 
 .stat-box {
     text-align: center;
@@ -590,6 +586,74 @@ html.dark-mode .btn-outline:hover {
 .stat-label {
     color: var(--text-light);
     font-size: 0.9rem;
+}
+
+/* Stress Test Button */
+.stress-test-container {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    animation: fadeInUp 1s ease-out 1.6s both;
+}
+
+.stress-test-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 3rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--white);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background-size: 200% 200%;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.stress-test-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.stress-test-button:hover::before {
+    opacity: 1;
+}
+
+.stress-test-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+    background-position: 100% 0;
+}
+
+.stress-test-button:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+.stress-icon {
+    font-size: 2rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.stress-text {
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .about-section {
@@ -1172,7 +1236,7 @@ html.dark-mode .detail-box:hover {
     background: var(--card-bg);
     border-radius: 20px;
     padding: 2rem;
-    margin: 0 auto 3rem;
+    margin: 7.5rem auto 3rem;
     max-width: 800px;
     box-shadow: var(--shadow-md);
     display: flex;
@@ -1180,8 +1244,10 @@ html.dark-mode .detail-box:hover {
     gap: 1.5rem;
     transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     border: 1px solid var(--border-color);
+    animation: fadeInUp 1s ease-out 1s both;
     position: relative;
-    overflow: visible;\n    opacity: 0;\n    transform: translateY(30px);\n}\n\n.quote-of-day.visible {\n    opacity: 1;\n    transform: translateY(0);\n    animation: fadeInUp 0.8s ease-out both;\n}
+    overflow: visible;
+}
 
 .quote-of-day::after {
     content: '"';
