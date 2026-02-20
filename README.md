@@ -1,6 +1,6 @@
 # BelloBito 💘
 
-Site de compatibilité amoureuse simple et élégant.
+Site de compatibilité amoureuse et de test de personnalité.
 
 ## Installation
 
@@ -18,53 +18,39 @@ Le site sera accessible sur `http://localhost:3000`
 
 ## Fonctionnalités
 
-- Interface simple et intuitive
-- Calcul de compatibilité amoureuse basé sur les prénoms
-- Design moderne et responsive
-- Animations fluides
+- 🔥 **Test de Compatibilité** — Calculez votre compatibilité amoureuse basée sur vos prénoms
+- 💍 **Mariable ?** — Questionnaire pour évaluer votre sérieux en amour (50 questions)
+- 🎨 **Design moderne** — Interface intuitive et responsive avec animations fluides
+- 🌙 **Mode sombre** — Thème clair/sombre intégré
 
 ## Structure du projet
 
 ```
 bellobito/
-├── server.js          # Serveur Express
-├── package.json       # Dépendances
+├── server.js           # Serveur Express
+├── package.json        # Dépendances
+├── db/
+│   └── init_postgres.sql  # Schéma PostgreSQL
 └── public/
-    ├── index.html     # Page principale
-    ├── style.css      # Styles
-    └── script.js      # Logique JavaScript
+    ├── index.html      # Page principale
+    ├── style.css       # Styles
+    ├── script.js       # Logique test de compatibilité
+    └── mariable.js     # Logique questionnaire "Mariable ?"
 ```
 
-## Technologie
+## Technologies
 
-- Node.js
-- Express.js
-- HTML5/CSS3/JavaScript
+- **Backend** : Node.js, Express.js
+- **Frontend** : HTML5, CSS3, JavaScript
+- **Base de données** : PostgreSQL
 
+## Configuration Base de Données
 
-**Base de données**
-
-Le projet utilise maintenant PostgreSQL. Un schéma Postgres est fourni dans `db/init_postgres.sql` et vous pouvez l'initialiser via le script npm `init:pg`.
-
-- Initialiser via le script (recommandé) :
-
-```bash
-# exporter DATABASE_URL ou PG_* (voir exemple ci-dessous)
-npm run init:pg
-```
-
-- Ou avec `psql` :
-
-```bash
-# (se positionner à la racine du projet)
-psql "postgresql://user:password@host:5432/dbname" -f db/init_postgres.sql
-```
-
-- Variables d'environnement acceptées :
+### Variables d'environnement
 
 ```env
-# Option A (connexion unique)
-DATABASE_URL=postgresql://user:password@host:5432/dbname
+# Option A (URL complète)
+DATABASE_URL=postgresql://user:password@host:5432/bellobito
 
 # Option B (variables distinctes)
 PGHOST=localhost
@@ -74,8 +60,20 @@ PGDATABASE=bellobito
 PGPORT=5432
 ```
 
-Le serveur utilise `src/db.js` (module `pg`) pour se connecter. Les endpoints exposés :
+### Initialisation
 
-- `POST /api/tests` — enregistrer un test (body JSON: `name1`, `name2`, `score`, `method`, `extras`).
-- `GET /api/tests?limit=50` — récupérer l'historique (par défaut 50, max 100).
+```bash
+npm run init:pg
+```
+
+Ou avec `psql` :
+
+```bash
+psql "postgresql://user:password@host:5432/bellobito" -f db/init_postgres.sql
+```
+
+## API Endpoints
+
+- `POST /api/tests` — Enregistrer un test (body: `name1`, `name2`, `score`, `method`, `extras`)
+- `GET /api/tests?limit=50` — Récupérer l'historique (max 100)
 
