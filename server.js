@@ -189,6 +189,39 @@ app.get('/api/tests/:id', async (req, res) => {
   }
 });
 
+// Route de stress test (calculs intensifs)
+app.get('/stresstest', (req, res) => {
+  const startTime = Date.now();
+  const iterations = req.query.iterations || 10000000;
+  
+  console.log(`🔥 Stress test démarré avec ${iterations} itérations...`);
+  
+  let result = 0;
+  for (let i = 0; i < iterations; i++) {
+    // Calculs exponentiels et trigonométriques intensifs
+    result += Math.exp(Math.sqrt(i)) * Math.sin(i) * Math.cos(i);
+    result += Math.pow(i, 0.5) * Math.log(i + 1);
+    result += Math.tan(i / 1000) * Math.atan(i);
+    
+    // Quelques opérations supplémentaires
+    if (i % 100000 === 0) {
+      result = result % 1000000; // Éviter l'overflow
+    }
+  }
+  
+  const duration = Date.now() - startTime;
+  
+  res.json({
+    message: 'Stress test terminé',
+    iterations: iterations,
+    duration: `${duration}ms`,
+    result: result.toFixed(2),
+    timestamp: new Date().toISOString()
+  });
+  
+  console.log(`✅ Stress test terminé en ${duration}ms`);
+});
+
 app.listen(PORT, () => {
   console.log(`💖 BelloBito sur http://localhost:${PORT}`);
 });
