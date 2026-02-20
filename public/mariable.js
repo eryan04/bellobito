@@ -31,227 +31,272 @@ const allQuestions = [
     {
         id: 1,
         text: "Vous stalkez l'ex de votre crush sur les réseaux ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 2,
         text: "Vous avez déjà ghost quelqu'un après une date ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 3,
         text: "Vous regardez le tel de votre partenaire en cachette ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 4,
         text: "Vous avez déjà menti sur votre body count ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 5,
         text: "Vous êtes du genre à revenir vers votre ex quand vous vous ennuyez ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 6,
         text: "Vous avez déjà trompé votre partenaire (même un simple kiss) ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 7,
         text: "Vous utilisez Tinder/Bumble en étant en couple ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 8,
         text: "Vous êtes chaud(e) pour un plan à 3 ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 9,
         text: "Vous avez déjà couché le premier soir ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "maybe"
     },
     {
         id: 10,
         text: "Vous êtes libre de toute relation ou situationship actuellement ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "yes"
     },
     {
         id: 11,
         text: "Vous avez des feelings pour quelqu'un d'autre en ce moment ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 12,
         text: "Vous acceptez de partager votre localisation H24 avec votre partenaire ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 13,
         text: "Vous êtes jaloux/jalouse de manière toxique ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 14,
         text: "Vous avez déjà envoyé des nudes à quelqu'un ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "maybe"
     },
     {
         id: 15,
         text: "Vous matez d'autres personnes quand vous êtes en couple ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 16,
         text: "Vous avez déjà fait semblant d'avoir un orgasme ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 17,
         text: "Le sexe est plus important pour vous que les sentiments ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 18,
         text: "Vous avez déjà couché avec l'ex de votre pote ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 19,
         text: "Vous seriez chaud(e) pour un mariage ouvert ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 20,
         text: "Vous mentez sur vos revenus pour impressionner les babies?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 21,
         text: "Vous êtes toujours pas over votre ex ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 22,
         text: "Vous avez déjà simulé une maladie pour annuler un date ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 23,
         text: "Vous jugez les gens sur leur body count ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 24,
         text: "Vous êtes du genre sugar baby/sugar daddy ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 25,
         text: "Les kids c'est niet pour vous ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "maybe"
     },
     {
         id: 26,
         text: "Vous êtes tactile en public ou ça vous gêne ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "yes"
     },
     {
         id: 27,
         text: "Vous préférez être célibataire que mal accompagné(e) ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "yes"
     },
     {
         id: 28,
         text: "Vous avez déjà refusé quelqu'un à cause de son physique ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "maybe"
     },
     {
         id: 29,
         text: "Vous êtes en mode couple goals sur les réseaux mais c'est fake ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 30,
         text: "Vous scrollez sur les profils de vos ex régulièrement ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 31,
         text: "Vous pardonnez facilement si on vous trompe ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 32,
         text: "Vous êtes prêt(e) à quitter votre ville pour votre moitié ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "yes"
     },
     {
         id: 33,
         text: "Vous parlez de votre vie de couple à tout le monde ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 34,
         text: "Vous êtes du genre possessif/possessive ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 35,
         text: "Vous avez déjà consulté pour vos red flags en amour ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "yes"
     },
     {
         id: 36,
         text: "Vous savez où vous voulez être dans 5 ans (vraiment) ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "yes"
     },
     {
         id: 37,
         text: "Vous êtes du genre à faire passer votre crush avant vos potes ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 38,
         text: "Vous acceptez que votre partenaire ait des potes de son ex genre ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "yes"
     },
     {
         id: 39,
         text: "Vous dites merci pour les petites attentions ou c'est normal ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "yes"
     },
     {
         id: 40,
         text: "Friends with benefits c'est votre zone de confort ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 41,
         text: "Vous acceptez qu'on vous dise vos 4 vérités ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "yes"
     },
     {
         id: 42,
         text: "Vous pouvez parler de tout avec votre partenaire ou y'a des sujets tabous ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "yes"
     },
     {
         id: 43,
         text: "Vos parents sont encore ensemble et c'est un exemple pour vous ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "yes"
     },
     {
         id: 44,
         text: "Vous lâchez votre partenaire dès que ça devient compliqué ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 45,
         text: "Ça vous dérange que votre partenaire ait un passé plus chargé que vous ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 46,
@@ -261,22 +306,26 @@ const allQuestions = [
     {
         id: 47,
         text: "Vous donnez une 2ème chance après une infidélité ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 48,
         text: "Vous êtes du genre bipolaire émotionnellement ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "no"
     },
     {
         id: 49,
         text: "Vous avez vraiment du temps pour une relation ou c'est juste pour flex ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "yes"
     },
     {
         id: 50,
         text: "Vous êtes vraiment prêt(e) à vous poser ou c'est juste des paroles ?",
-        type: "boolean"
+        type: "boolean",
+        goodAnswer: "yes"
     }
 ];
 
@@ -414,14 +463,20 @@ function calculateScore() {
         const question = state.questions[index];
         
         if (question.type === 'boolean') {
-            if (answer === 'yes') {
-                score += 0; // Oui = +0 (déjà à 100)
+            const goodAnswer = question.goodAnswer;
+            
+            if (answer === goodAnswer) {
+                // Bonne réponse = +0 (pas de pénalité)
+                score += 0;
             } else if (answer === 'maybe') {
-                score -= 5; // Je ne sais pas = -5
-            } else if (answer === 'no') {
-                score -= 10; // Non = -10
+                // Je ne sais pas = -5
+                score -= 5;
+            } else if (answer && answer !== goodAnswer) {
+                // Mauvaise réponse = -10
+                score -= 10;
             } else {
-                score -= 5; // Non répondu = -5
+                // Non répondu = -5
+                score -= 5;
             }
         }
     });
