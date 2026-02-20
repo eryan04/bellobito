@@ -23,6 +23,10 @@ app.get('/horoscope', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'horoscope.html'));
 });
 
+app.get('/mariable', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'mariable.html'));
+});
+
 app.get('/history', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'history.html'));
 });

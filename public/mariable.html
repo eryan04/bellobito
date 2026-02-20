@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariable ? - BelloBito</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">💖</span>
+                <span class="brand-name">BelloBito</span>
+            </div>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="/" class="nav-link">Accueil</a>
+                    <a href="/test" class="nav-link">Test de compatibilité</a>
+                    <a href="/mariable" class="nav-link active">Mariable ?</a>
+                    <a href="/horoscope" class="nav-link">Horoscope</a>
+                    <a href="/history" class="nav-link">Historique</a>
+                </div>
+                <button id="themeToggle" class="theme-toggle">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="test-section mariable-section">
+        <div class="container">
+            <div class="test-container">
+                <div class="test-header">
+                    <h2 class="test-title">Êtes-vous Mariable ? 💍</h2>
+                    <p class="test-subtitle">Découvrez votre pourcentage de "mariabilité"</p>
+                </div>
+
+                <!-- Phase de sélection du nombre de questions -->
+                <div id="selectionPhase" class="selection-phase">
+                    <div class="selection-card">
+                        <p class="selection-intro">Choisissez le nombre de questions pour le questionnaire</p>
+                        <div class="selection-buttons">
+                            <button class="btn btn-primary selection-btn" data-questions="10">
+                                <span class="question-count">10</span>
+                                <span class="question-label">Questions</span>
+                            </button>
+                            <button class="btn btn-primary selection-btn" data-questions="30">
+                                <span class="question-count">30</span>
+                                <span class="question-label">Questions</span>
+                            </button>
+                            <button class="btn btn-primary selection-btn" data-questions="50">
+                                <span class="question-count">50</span>
+                                <span class="question-label">Questions</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase du questionnaire -->
+                <div id="questionnairPhase" class="questionn-phase" style="display: none;">
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div id="progressFill" class="progress-fill"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span id="currentQuestion">1</span> / <span id="totalQuestions">10</span>
+                        </div>
+                    </div>
+
+                    <div id="questionsContainer" class="questions-container">
+                        <!-- Les questions seront générées ici -->
+                    </div>
+
+                    <div class="questionnaire-buttons">
+                        <button id="prevBtn" class="btn btn-secondary" style="display: none;">← Précédent</button>
+                        <button id="nextBtn" class="btn btn-primary">Suivant →</button>
+                    </div>
+                </div>
+
+                <!-- Phase des résultats -->
+                <div id="resultsPhase" class="results-phase" style="display: none;">
+                    <div class="result-content">
+                        <h3 class="result-title">Votre Score de Mariabilité 💍</h3>
+                        <div class="score-circle">
+                            <div class="score-percentage">
+                                <span id="scorePercentage">0</span>%
+                            </div>
+                        </div>
+                        <div class="score-message">
+                            <p id="scoreMessage"></p>
+                        </div>
+                        <div id="scoreDetails" class="score-details"></div>
+                        <div class="result-actions">
+                            <button id="restartBtn" class="btn btn-primary">Recommencer</button>
+                            <button id="shareResultBtn" class="btn btn-secondary">Partager</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-icon">💕</span>
+                    <span class="brand-name">BelloBito</span>
+                </div>
+                <p class="footer-text">L'amour n'a pas de formule, mais on peut toujours s'amuser à calculer ❤️</p>
+                <p class="footer-copy">© 2026 BelloBito. Fait avec 💖 pour le fun.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="mariable.js"></script>
+</body>
+</html>
