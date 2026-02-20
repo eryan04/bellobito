@@ -30,227 +30,227 @@ initTheme();
 const allQuestions = [
     {
         id: 1,
-        text: "Vous êtes prêt(e) à faire des compromis dans une relation ?",
+        text: "Vous stalkez l'ex de votre crush sur les réseaux ?",
         type: "boolean"
     },
     {
         id: 2,
-        text: "Cherchez-vous une relation à long terme ?",
+        text: "Vous avez déjà ghost quelqu'un après une date ?",
         type: "boolean"
     },
     {
         id: 3,
-        text: "Êtes-vous conscient(e) de vos défauts et prêt(e) à les améliorer ?",
+        text: "Vous regardez le tel de votre partenaire en cachette ?",
         type: "boolean"
     },
     {
         id: 4,
-        text: "Pouvez-vous gérer le stress et les conflits de manière mature ?",
+        text: "Vous avez déjà menti sur votre body count ?",
         type: "boolean"
     },
     {
         id: 5,
-        text: "Avez-vous des objectifs de vie clairs ?",
+        text: "Vous êtes du genre à revenir vers votre ex quand vous vous ennuyez ?",
         type: "boolean"
     },
     {
         id: 6,
-        text: "Êtes-vous financièrement stable ?",
+        text: "Vous avez déjà trompé votre partenaire (même un simple kiss) ?",
         type: "boolean"
     },
     {
         id: 7,
-        text: "Êtes-vous prêt(e) à écouter votre partenaire sans jugement ?",
+        text: "Vous utilisez Tinder/Bumble en étant en couple ?",
         type: "boolean"
     },
     {
         id: 8,
-        text: "Savez-vous communiquer vos émotions ouvertement ?",
+        text: "Vous êtes chaud(e) pour un plan à 3 ?",
         type: "boolean"
     },
     {
         id: 9,
-        text: "Êtes-vous prêt(e) pour le mariage et/ou une vie commune ?",
+        text: "Vous avez déjà couché le premier soir ?",
         type: "boolean"
     },
     {
         id: 10,
-        text: "Êtes-vous libre de toute relation actuellement ?",
+        text: "Vous êtes libre de toute relation ou situationship actuellement ?",
         type: "boolean"
     },
     {
         id: 11,
-        text: "Avez-vous des valeurs familiales importantes ?",
+        text: "Vous avez des feelings pour quelqu'un d'autre en ce moment ?",
         type: "boolean"
     },
     {
         id: 12,
-        text: "Êtes-vous patient(e) dans une relation ?",
+        text: "Vous acceptez de partager votre localisation H24 avec votre partenaire ?",
         type: "boolean"
     },
     {
         id: 13,
-        text: "Pouvez-vous donner de l'espace à votre partenaire ?",
+        text: "Vous êtes jaloux/jalouse de manière toxique ?",
         type: "boolean"
     },
     {
         id: 14,
-        text: "Êtes-vous honnête dans vos relations ?",
+        text: "Vous avez déjà envoyé des nudes à quelqu'un ?",
         type: "boolean"
     },
     {
         id: 15,
-        text: "Avez-vous un bon sens de l'humour ?",
+        text: "Vous matez d'autres personnes quand vous êtes en couple ?",
         type: "boolean"
     },
     {
         id: 16,
-        text: "Êtes-vous capable d'être vulnérable émotionnellement ?",
+        text: "Vous avez déjà fait semblant d'avoir un orgasme ?",
         type: "boolean"
     },
     {
         id: 17,
-        text: "Valuez-vous l'intimité physique et émotionnelle ?",
+        text: "Le sexe est plus important pour vous que les sentiments ?",
         type: "boolean"
     },
     {
         id: 18,
-        text: "Pouvez-vous soutenir les rêves de votre partenaire ?",
+        text: "Vous avez déjà couché avec l'ex de votre pote ?",
         type: "boolean"
     },
     {
         id: 19,
-        text: "Êtes-vous prêt(e) pour des responsabilités conjugales ?",
+        text: "Vous seriez chaud(e) pour un mariage ouvert ?",
         type: "boolean"
     },
     {
         id: 20,
-        text: "Recherchez-vous une personne avec des valeurs similaires ?",
+        text: "Vous mentez sur vos revenus pour impressionner les babies?",
         type: "boolean"
     },
     {
         id: 21,
-        text: "Avez-vous surmonté les traumatismes de vos relations passées ?",
+        text: "Vous êtes toujours pas over votre ex ?",
         type: "boolean"
     },
     {
         id: 22,
-        text: "Êtes-vous prêt(e) à inverser vos priorités pour votre partenaire ?",
+        text: "Vous avez déjà simulé une maladie pour annuler un date ?",
         type: "boolean"
     },
     {
         id: 23,
-        text: "Pouvez-vous accepter les différences culturelles ou religieuses ?",
+        text: "Vous jugez les gens sur leur body count ?",
         type: "boolean"
     },
     {
         id: 24,
-        text: "Avez-vous une carrière ou des projets qui vous accomplissent ?",
+        text: "Vous êtes du genre sugar baby/sugar daddy ?",
         type: "boolean"
     },
     {
         id: 25,
-        text: "Êtes-vous prêt(e) potentiellement pour des enfants ?",
+        text: "Les kids c'est niet pour vous ?",
         type: "boolean"
     },
     {
         id: 26,
-        text: "Aimez-vous montrer de l'affection à votre partenaire ?",
+        text: "Vous êtes tactile en public ou ça vous gêne ?",
         type: "boolean"
     },
     {
         id: 27,
-        text: "Pouvez-vous être heureux/heureuse sans être en couple ?",
+        text: "Vous préférez être célibataire que mal accompagné(e) ?",
         type: "boolean"
     },
     {
         id: 28,
-        text: "Acceptez-vous les défauts physiques de votre partenaire ?",
+        text: "Vous avez déjà refusé quelqu'un à cause de son physique ?",
         type: "boolean"
     },
     {
         id: 29,
-        text: "Êtes-vous prêt(e) à grandir et évoluer avec votre partenaire ?",
+        text: "Vous êtes en mode couple goals sur les réseaux mais c'est fake ?",
         type: "boolean"
     },
     {
         id: 30,
-        text: "Avez-vous une bonne estime de vous-même ?",
+        text: "Vous scrollez sur les profils de vos ex régulièrement ?",
         type: "boolean"
     },
     {
         id: 31,
-        text: "Pouvez-vous pardonner les erreurs de votre partenaire ?",
+        text: "Vous pardonnez facilement si on vous trompe ?",
         type: "boolean"
     },
     {
         id: 32,
-        text: "Êtes-vous prêt(e) à faire des sacrifices pour le bien du couple ?",
+        text: "Vous êtes prêt(e) à quitter votre ville pour votre moitié ?",
         type: "boolean"
     },
     {
         id: 33,
-        text: "Avez-vous des relations amicales saines et stables ?",
+        text: "Vous parlez de votre vie de couple à tout le monde ?",
         type: "boolean"
     },
     {
         id: 34,
-        text: "Pouvez-vous respirer l'indépendance et la confiance ?",
+        text: "Vous êtes du genre possessif/possessive ?",
         type: "boolean"
     },
     {
         id: 35,
-        text: "Êtes-vous prêt(e) à consulter un thérapeute de couple si nécessaire ?",
+        text: "Vous avez déjà consulté pour vos red flags en amour ?",
         type: "boolean"
     },
     {
         id: 36,
-        text: "Avez-vous une vision claire du futur que vous souhaitez ?",
+        text: "Vous savez où vous voulez être dans 5 ans (vraiment) ?",
         type: "boolean"
     },
     {
         id: 37,
-        text: "Pouvez-vous donner de l'importance au bien-être de votre partenaire ?",
+        text: "Vous êtes du genre à faire passer votre crush avant vos potes ?",
         type: "boolean"
     },
     {
         id: 38,
-        text: "Êtes-vous prêt(e) à renoncer à certaines libertés pour la fidélité ?",
+        text: "Vous acceptez que votre partenaire ait des potes de son ex genre ?",
         type: "boolean"
     },
     {
         id: 39,
-        text: "Avez-vous de la gratitude pour les petites choses dans une relation ?",
+        text: "Vous dites merci pour les petites attentions ou c'est normal ?",
         type: "boolean"
     },
     {
         id: 40,
-        text: "Pouvez-vous être un(e) ami(e) avant d'être un(e) amant(e) ?",
+        text: "Friends with benefits c'est votre zone de confort ?",
         type: "boolean"
     },
     {
         id: 41,
-        text: "Êtes-vous prêt(e) à entendre les critiques constructives ?",
+        text: "Vous acceptez qu'on vous dise vos 4 vérités ?",
         type: "boolean"
     },
     {
         id: 42,
-        text: "Pouvez-vous maintenir une connexion intellectuelle avec votre partenaire ?",
+        text: "Vous pouvez parler de tout avec votre partenaire ou y'a des sujets tabous ?",
         type: "boolean"
     },
     {
         id: 43,
-        text: "Avez-vous un modèle positif de relation (parents, amis) ?",
+        text: "Vos parents sont encore ensemble et c'est un exemple pour vous ?",
         type: "boolean"
     },
     {
         id: 44,
-        text: "Êtes-vous prêt(e) à être loyal(e) fond même en cas de difficultés ?",
+        text: "Vous lâchez votre partenaire dès que ça devient compliqué ?",
         type: "boolean"
     },
     {
         id: 45,
-        text: "Pouvez-vous accepter que votre partenaire ait un passé amoureux ?",
+        text: "Ça vous dérange que votre partenaire ait un passé plus chargé que vous ?",
         type: "boolean"
     },
     {
@@ -260,22 +260,22 @@ const allQuestions = [
     },
     {
         id: 47,
-        text: "Êtes-vous prêt(e) à donner une seconde chance à votre relation ?",
+        text: "Vous donnez une 2ème chance après une infidélité ?",
         type: "boolean"
     },
     {
         id: 48,
-        text: "Pouvez-vous exprimer vos besoins sans agressivité ?",
+        text: "Vous êtes du genre bipolaire émotionnellement ?",
         type: "boolean"
     },
     {
         id: 49,
-        text: "Avez-vous une bonne gestion du temps pour votre relation ?",
+        text: "Vous avez vraiment du temps pour une relation ou c'est juste pour flex ?",
         type: "boolean"
     },
     {
         id: 50,
-        text: "Êtes-vous prêt(e) à construire une vie ensemble avec passion et engagement ?",
+        text: "Vous êtes vraiment prêt(e) à vous poser ou c'est juste des paroles ?",
         type: "boolean"
     }
 ];
