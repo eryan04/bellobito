@@ -1,17 +1,30 @@
 // Thème
-const updateTheme = () => {
-    const isDark = localStorage.getItem('theme') === 'dark';
-    if (isDark) {
+function updateThemeIcon() {
+    const isDark = document.documentElement.classList.contains('dark-mode');
+    const themeIcon = document.querySelector('.theme-icon');
+    if (themeIcon) {
+        themeIcon.textContent = isDark ? '☀️' : '🌙';
+    }
+}
+
+function initTheme() {
+    const savedTheme = localStorage.getItem('bellobito_theme') || 'dark';
+    if (savedTheme === 'dark') {
         document.documentElement.classList.add('dark-mode');
     }
-};
+    updateThemeIcon();
+}
 
-document.getElementById('themeToggle')?.addEventListener('click', () => {
+function toggleTheme() {
     document.documentElement.classList.toggle('dark-mode');
-    localStorage.setItem('theme', document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light');
-});
+    const isDark = document.documentElement.classList.contains('dark-mode');
+    localStorage.setItem('bellobito_theme', isDark ? 'dark' : 'light');
+    updateThemeIcon();
+}
 
-updateTheme();
+document.getElementById('themeToggle')?.addEventListener('click', toggleTheme);
+
+initTheme();
 
 // Questions pour le questionnaire "Mariable ?"
 const allQuestions = [

@@ -7,7 +7,7 @@ function updateThemeIcon() {
 }
 
 function initTheme() {
-    const savedTheme = localStorage.getItem('bellobito_theme') || 'light';
+    const savedTheme = localStorage.getItem('bellobito_theme') || 'dark';
     if (savedTheme === 'dark') {
         document.documentElement.classList.add('dark-mode');
     }
@@ -271,6 +271,43 @@ function updateStats() {
     localStorage.setItem('bellobito_stats', JSON.stringify({ avg, best, tests }));
 }
 
+async function loadUserStatsFromDB() {
+    try {
+        const response = await fetch('/api/tests?limit=100');
+        if (!response.ok) return;
+        
+        const tests = await response.json();
+        if (!tests || tests.length === 0) return;
+        
+        const scores = tests.map(t => t.score).filter(s => s !== null && s !== undefined);
+        if (scores.length === 0) return;
+        
+        const avg = Math.round(scores.reduce((sum, score) => sum + score, 0) / scores.length);
+        const best = Math.max(...scores);
+        const testsCount = scores.length;
+        
+        const stats = { avg, best, tests: testsCount };
+        localStorage.setItem('bellobito_stats', JSON.stringify(stats));
+        displayUserStats(stats);
+    } catch (err) {
+        console.error('Erreur chargement stats:', err);
+    }
+}
+
+function displayUserStats(stats) {
+    const userStatsEl = document.getElementById('userStats');
+    if (!userStatsEl || !stats || !stats.tests) return;
+    
+    const avg = stats.avg !== undefined && stats.avg !== null ? stats.avg : 0;
+    const best = stats.best !== undefined && stats.best !== null ? stats.best : 0;
+    
+    userStatsEl.innerHTML = `
+        <div class="stat-item"><span class="stat-value">${stats.tests}</span> test${stats.tests > 1 ? 's' : ''}</div>
+        <div class="stat-item"><span class="stat-value">${avg}%</span> moyenne</div>
+        <div class="stat-item"><span class="stat-value">${best}%</span> record</div>
+    `;
+}
+
 function showToast(message, type = 'success') {
     const toast = document.createElement('div');
     toast.className = `toast toast-${type}`;
@@ -390,12 +427,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
+    // Charger les stats depuis localStorage d'abord
     const stats = JSON.parse(localStorage.getItem('bellobito_stats') || '{}');
-    if (stats.tests && document.getElementById('userStats')) {
-        document.getElementById('userStats').innerHTML = `
-            <div class="stat-item"><span class="stat-value">${stats.tests}</span> test${stats.tests > 1 ? 's' : ''}</div>
-            <div class="stat-item"><span class="stat-value">${stats.avg}%</span> moyenne</div>
-            <div class="stat-item"><span class="stat-value">${stats.best}%</span> record</div>
-        `;
-    }
+    displayUserStats(stats);
+    
+    // Puis charger depuis la DB pour avoir les données les plus récentes
+    loadUserStatsFromDB();
 });

@@ -8,7 +8,7 @@ function initTheme() {
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
     
-    const savedTheme = localStorage.getItem('bellobito_theme');
+    const savedTheme = localStorage.getItem('bellobito_theme') || 'dark';
     if (savedTheme === 'dark') {
         document.documentElement.classList.add('dark-mode');
         if (themeIcon) themeIcon.textContent = '☀️';

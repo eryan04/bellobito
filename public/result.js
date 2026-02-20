@@ -8,7 +8,7 @@ function updateThemeIcon() {
 }
 
 function initTheme() {
-    const savedTheme = localStorage.getItem('bellobito_theme') || 'light';
+    const savedTheme = localStorage.getItem('bellobito_theme') || 'dark';
     if (savedTheme === 'dark') {
         document.documentElement.classList.add('dark-mode');
     }
