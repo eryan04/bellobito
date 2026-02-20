@@ -180,7 +180,7 @@ const allQuestions = [
     },
     {
         id: 26,
-        text: "Vous êtes tactile en public ou ça vous gêne ?",
+        text: "Vous êtes tactile en public ?",
         type: "boolean",
         goodAnswer: "yes"
     },
@@ -258,7 +258,7 @@ const allQuestions = [
     },
     {
         id: 39,
-        text: "Vous dites merci pour les petites attentions ou c'est normal ?",
+        text: "Vous remerciez pour les petites attentions ?",
         type: "boolean",
         goodAnswer: "yes"
     },
@@ -276,13 +276,13 @@ const allQuestions = [
     },
     {
         id: 42,
-        text: "Vous pouvez parler de tout avec votre partenaire ou y'a des sujets tabous ?",
+        text: "Vous avez des sujets tabous avec votre partenaire ?",
         type: "boolean",
-        goodAnswer: "yes"
+        goodAnswer: "no"
     },
     {
         id: 43,
-        text: "Vos parents sont encore ensemble et c'est un exemple pour vous ?",
+        text: "Vos parents sont un bon exemple de couple pour vous ?",
         type: "boolean",
         goodAnswer: "yes"
     },
@@ -317,13 +317,13 @@ const allQuestions = [
     },
     {
         id: 49,
-        text: "Vous avez vraiment du temps pour une relation ou c'est juste pour flex ?",
+        text: "Vous avez vraiment du temps pour une relation sérieuse ?",
         type: "boolean",
         goodAnswer: "yes"
     },
     {
         id: 50,
-        text: "Vous êtes vraiment prêt(e) à vous poser ou c'est juste des paroles ?",
+        text: "Vous êtes prêt(e) à vous poser en couple sérieusement ?",
         type: "boolean",
         goodAnswer: "yes"
     }
