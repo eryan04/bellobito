@@ -1294,7 +1294,7 @@ html.dark-mode .horoscope-card {
 }
 
 .horoscope-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) scale(1.05);
     box-shadow: var(--shadow-lg);
 }
 

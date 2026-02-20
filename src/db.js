@@ -2,7 +2,7 @@ const { Pool } = require('pg');
 require('dotenv').config();
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: process.env.SCALINGO_POSTGRESQL_URL || process.env.DATABASE_URL,
   host: process.env.PGHOST,
   port: process.env.PGPORT ? Number(process.env.PGPORT) : undefined,
   user: process.env.PGUSER,
